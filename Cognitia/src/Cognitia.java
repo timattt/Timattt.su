@@ -201,27 +201,12 @@ public class Cognitia {
 	}
 
 	public static void man(int val) throws IOException, URISyntaxException {
-		File man = new File("MAN.txt");
-		if (!man.exists()) {
-			System.err.println("No mans found!");
-			return;
+		try {
+			Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+			desktop.browse(new URI("/www/timattt.su/Cognitia/mans/" + Integer.toString(val) + ".pdf"));
+		} catch (Exception e) {
+			System.err.println("No such man!");
 		}
-		BufferedReader rd = new BufferedReader(new FileReader(man));
-		String line = null;
-		while ((line = rd.readLine()) != null) {
-			String[] divs = line.split(":");
-			int v = Integer.parseInt(divs[0]);
-			String link = divs[1];
-			if (v == val) {
-				Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
-				desktop.browse(new URI(link));
-				rd.close();
-				return;
-			}
-		}
-		rd.close();
-
-		System.err.println("No such man!");
 	}
 
 	public static void main(String[] args)

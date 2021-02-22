@@ -1,0 +1,6 @@
+#!/bin/bash
+wget -o /usr/bin/Cognitia.jar https://github.com/timattt/Project-timattt.su/raw/master/Cognitia/bin/Cognitia.jar
+wget -o /usr/bin/cogn https://github.com/timattt/Project-timattt.su/raw/master/Cognitia/bin/cogn
+wget -o /usr/bin/RESEARCH_GRAPH.dot https://github.com/timattt/Project-timattt.su/raw/master/Cognitia/bin/RESEARCH_GRAPH.dot
+chmod +x /usr/bin/cogn
+

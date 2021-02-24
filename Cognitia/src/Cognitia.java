@@ -15,8 +15,7 @@ public class Cognitia {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void see(boolean moreColors, boolean drawHidden) throws InterruptedException, IOException, URISyntaxException {
-		File parent = new File(Cognitia.class.getProtectionDomain().getCodeSource().getLocation()
-			    .toURI()).getParentFile();
+		File parent = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
 		File srcfile = new File(parent, "RESEARCH_GRAPH.dot");
 		File output = new File(parent, "out.dot");
 		File available = new File(parent, "RESEARCHED.txt");
@@ -191,8 +190,7 @@ public class Cognitia {
 	}
 
 	public static void unlock(int val) throws IOException, URISyntaxException {
-		File parent = new File(Cognitia.class.getProtectionDomain().getCodeSource().getLocation()
-			    .toURI()).getParentFile();
+		File parent = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
 		File available = new File(parent, "RESEARCHED.txt");
 		if (!available.exists()) {
 			available.createNewFile();

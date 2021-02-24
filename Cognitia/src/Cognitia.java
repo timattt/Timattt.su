@@ -40,7 +40,7 @@ public class Cognitia {
 		output.delete();
 		output.createNewFile();
 
-		File png = new File("RESEARCH_IMAGE.png");
+		File png = new File(docs, "RESEARCH_IMAGE.png");
 		png.delete();
 
 		// AVAILABLE parse
@@ -182,8 +182,12 @@ public class Cognitia {
 		rd.close();
 		wr.close();
 
+		String command = "dot -Tpng " + docs.getAbsolutePath() + "/out.dot -o " + docs.getAbsolutePath() + "/RESEARCH_IMAGE.png";
+		
 		Runtime run = Runtime.getRuntime();
-		Process pr = run.exec("dot -Tpng out.dot -o RESEARCH_IMAGE.png");
+		System.out.println("using dot with command:" + command);
+		System.out.flush();
+		Process pr = run.exec(command);
 		pr.waitFor();
 
 		Desktop dt = Desktop.getDesktop();

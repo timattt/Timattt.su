@@ -11,14 +11,17 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.TreeSet;
 
+import javax.swing.JFileChooser;
+
 public class Cognitia {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void see(boolean moreColors, boolean drawHidden) throws InterruptedException, IOException, URISyntaxException {
 		File parent = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
+		File docs = new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString());
 		File srcfile = new File(parent, "RESEARCH_GRAPH.dot");
-		File output = new File(parent, "out.dot");
-		File available = new File(parent, "RESEARCHED.txt");
+		File output = new File(docs, "out.dot");
+		File available = new File(docs, "RESEARCHED.txt");
 
 		if (!srcfile.exists()) {
 			System.err.println("No research graph tree! Searched at " + srcfile.getAbsolutePath());
@@ -190,8 +193,8 @@ public class Cognitia {
 	}
 
 	public static void unlock(int val) throws IOException, URISyntaxException {
-		File parent = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
-		File available = new File(parent, "RESEARCHED.txt");
+		File docs = new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString());
+		File available = new File(docs, "RESEARCHED.txt");
 		if (!available.exists()) {
 			available.createNewFile();
 		}

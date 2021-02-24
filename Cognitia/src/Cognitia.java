@@ -14,10 +14,12 @@ import java.util.TreeSet;
 public class Cognitia {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public static void see(boolean moreColors, boolean drawHidden) throws InterruptedException, IOException {
-		File srcfile = new File("RESEARCH_GRAPH.dot");
-		File output = new File("out.dot");
-		File available = new File("RESEARCHED.txt");
+	public static void see(boolean moreColors, boolean drawHidden) throws InterruptedException, IOException, URISyntaxException {
+		File parent = new File(Cognitia.class.getProtectionDomain().getCodeSource().getLocation()
+			    .toURI());
+		File srcfile = new File(parent, "RESEARCH_GRAPH.dot");
+		File output = new File(parent, "out.dot");
+		File available = new File(parent, "RESEARCHED.txt");
 
 		if (!srcfile.exists()) {
 			System.err.println("No research graph tree! Searched at " + srcfile.getAbsolutePath());
@@ -188,8 +190,10 @@ public class Cognitia {
 		output.delete();
 	}
 
-	public static void unlock(int val) throws IOException {
-		File available = new File("RESEARCHED.txt");
+	public static void unlock(int val) throws IOException, URISyntaxException {
+		File parent = new File(Cognitia.class.getProtectionDomain().getCodeSource().getLocation()
+			    .toURI());
+		File available = new File(parent, "RESEARCHED.txt");
 		if (!available.exists()) {
 			available.createNewFile();
 		}

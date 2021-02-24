@@ -18,11 +18,13 @@ public class Cognitia {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void see(boolean moreColors, boolean drawHidden) throws InterruptedException, IOException, URISyntaxException {
 		File parent = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath());
-		File docs = new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString());
+		File docs = new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "/Cognitia");
 		File srcfile = new File(parent, "RESEARCH_GRAPH.dot");
 		File output = new File(docs, "out.dot");
 		File available = new File(docs, "RESEARCHED.txt");
 
+		docs.mkdir();
+		
 		if (!srcfile.exists()) {
 			System.err.println("No research graph tree! Searched at " + srcfile.getAbsolutePath());
 			return;
@@ -197,7 +199,8 @@ public class Cognitia {
 	}
 
 	public static void unlock(int val) throws IOException, URISyntaxException {
-		File docs = new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString());
+		File docs = new File(new JFileChooser().getFileSystemView().getDefaultDirectory().toString() + "/Cognitia");
+		docs.mkdir();
 		File available = new File(docs, "RESEARCHED.txt");
 		if (!available.exists()) {
 			available.createNewFile();

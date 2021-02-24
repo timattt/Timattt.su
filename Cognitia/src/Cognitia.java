@@ -20,7 +20,7 @@ public class Cognitia {
 		File available = new File("RESEARCHED.txt");
 
 		if (!srcfile.exists()) {
-			System.err.println("No research graph tree!");
+			System.err.println("No research graph tree! Searched at " + srcfile.getAbsolutePath());
 			return;
 		}
 
@@ -30,7 +30,7 @@ public class Cognitia {
 			wr.write("1");
 			wr.newLine();
 			wr.close();
-			System.err.println("No researched file found! It will be created!");
+			System.err.println("No researched file found! It will be created at " + available.getAbsolutePath());
 		}
 
 		output.delete();

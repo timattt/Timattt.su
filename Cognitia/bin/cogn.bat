@@ -1,2 +1,2 @@
 @echo off
-java -jar Cognitia.jar %*
+java -jar C:/Windows/System32/Cognitia.jar %*

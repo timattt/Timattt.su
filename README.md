@@ -13,6 +13,7 @@
 * Установите graphviz командой "sudo apt install graphviz"
 * Скачайте файл установки [отсюда](https://github.com/timattt/Project-timattt.su/raw/master/Cognitia/installer/Linux/installCognitiaLinux.sh)
 * Запустите консоль в директории скачанного файла
+* Используйте команду "chmod +x installCognitiaLinux.sh"
 * Используйте команду "sudo ./файл installCognitiaLinux.sh"
 ### Windows
 * Установите java [отсюда](https://www.java.com/ru/)
